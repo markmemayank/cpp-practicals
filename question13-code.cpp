@@ -5,58 +5,47 @@ Marks. Write a program to store 5 objects of Student class in a file. Retrieve t
 from file and display them.
 */
 
-#include <iostream>
-#include <cmath>
-#include <fstream>
+#include <bits/stdc++.h>
 using namespace std;
 
-class StudentInfo
+class Student
 {
 public:
-    int Student_RollNumber;
-    string Student_Name;
-    int Student_Class;
-    int Student_Year;
-    int Student_Marks;
+    int RollNo;
+    string Name;
+    int Class;
+    int Year;
+    int TotalMarks;
 };
 
 int main()
 {
     ofstream f2;
-    f2.open("studentdetails.txt");
+    f2.open("Question_13_output.txt");
 
     for (int i = 0; i < 5; i++)
     {
-        StudentInfo object; 
-        
-        cout<<"Enter roll number:";
-        cin >> object.Student_RollNumber;
-        f2 << object.Student_RollNumber << "  ";
+        Student obj;
+        cout << "Roll No     : ";
+        cin >> obj.RollNo;
+        f2 << obj.RollNo << "  ";
 
+        cout << "Name        : ";
         cin.ignore();
+        getline(cin, obj.Name);
+        f2 << obj.Name << "    ";
         
-        cout<<"Enter student name:";
-        getline(cin, object.Student_Name);
-        f2 << object.Student_Name << "    ";
-        
-        cout<<"Enter student class:";
+        cout << "Class       : ";
+        cin >> obj.Class;
 
-        cin >> object.Student_Class;
-		
-		cout<<"Enter student year:";
-		cin>>object.Student_Year;
-		cout<<"Enter student marks:"; 
-		cin>>object.Student_Marks;
-        f2 << object.Student_Class << "  " << object.Student_Year << "  " << object.Student_Marks << endl;
-        cout<<"\n";
-    }
-    
-    cout<<"\n\n\n\n R.No. Name Class Year Marks \n\n";
-    ifstream f("studentdetails.txt");
+        cout << "Year        : ";
+        cin >> obj.Year;
 
-    if (f.is_open())
-        std::cout << f.rdbuf();
-    
+        cout << "Total Marks : ";
+        cin >> obj.TotalMarks;
+
+        f2 << obj.Class << "  " << obj.Year << "  " << obj.TotalMarks << endl;
+        }
 
     return 0;
 }
